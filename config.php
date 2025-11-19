@@ -1,19 +1,15 @@
-
-
 <?php
+   $dbHost = 'localhost';
+   $dbUsername = 'root';
+   $dbPassword = '';
+   $dbName = 'formulario-gustavo';
 
-$servidor = "localhost";
-$usuario = "root";      
-$senha = "vitao0206";            
-$banco = "projeto1";    
 
-$conexao = new mysqli($servidor, $usuario, $senha, $banco);
+   $conexao = new mysqli($dbHost, $dbUsername, $dbPassword, $dbName);
 
-if ($conexao->connect_errno) {
-    echo "Erro ao conectar: (" . $conexao->connect_errno . ") " . $conexao->connect_error;
-    exit;
-}
+   if ($conexao->connect_error) {
+       die('Erro de conexão: ' . $conexao->connect_error);
+   }
 
-?>
-
+   $conexao->set_charset('utf8');
 ?>
