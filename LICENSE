@@ -19,3 +19,13 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+cd /c/xampp/htdocs/formulario
+git init
+git branch -M main
+# ignore arquivos sensíveis como config.php
+echo "config.php" > .gitignore
+git add .
+git commit -m "Initial commit"
+git remote add origin https://github.com/SEU_USUARIO/SEU_REPO.git
+git push -u origin main
