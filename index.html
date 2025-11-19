@@ -1,23 +1,36 @@
-
 <?php
 
-if (isset($_POST['submit'])) {    
+if(isset($_POST['submit']))
+{
+    $nome = $_POST['nome'];
+    $email = $_POST['email'];
+    $telefone = $_POST['telefone'];
+    $genero = $_POST['genero'];
+    $data_nasc = $_POST['data_nascimento'];
+    $cidade = $_POST['cidade'];
+    $estado = $_POST['estado'];
+    $endereco = $_POST['endereco'];
 
     include_once('config.php');
 
-    $nome =  $_POST['nome'];
-    $email =  $_POST['email'];
-    $telefone =  $_POST['telefone'];
-    $genero =  $_POST['genero'];
-    $data_nascimento =  $_POST['data_nascimento'];
-    $cidade =  $_POST['cidade'];
-    $estado =  $_POST['estado'];
-    $endereco =  $_POST['endereco'];
+    $nome = mysqli_real_escape_string($conexao, $nome);
+    $email = mysqli_real_escape_string($conexao, $email);
+    $telefone = mysqli_real_escape_string($conexao, $telefone);
+    $genero = mysqli_real_escape_string($conexao, $genero);
+    $data_nasc = mysqli_real_escape_string($conexao, $data_nasc);
+    $cidade = mysqli_real_escape_string($conexao, $cidade);
+    $estado = mysqli_real_escape_string($conexao, $estado);
+    $endereco = mysqli_real_escape_string($conexao, $endereco);
 
-    $result = mysqli_query($conexao, "INSERT INTO usuario(nome, email, telefone, genero, data_nascimento, cidade, estado, endereco)
-    VALUES ('$nome', '$email', '$telefone', '$genero', '$data_nascimento', '$cidade', '$estado', '$endereco')");
+    $result = mysqli_query($conexao, "INSERT INTO usuarios (nome, email, telefone, sexo, data_nasc, cidade, estado) VALUES ('$nome','$email','$telefone','$genero','$data_nasc','$cidade','$estado')");
+
+    if (!$result) {
+        die('Erro ao inserir: ' . mysqli_error($conexao));
+    }
+
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
