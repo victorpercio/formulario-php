@@ -12,7 +12,7 @@ if(isset($_POST['submit']))
     $endereco = $_POST['endereco'];
 
     include_once('config.php');
-
+    
     $nome = mysqli_real_escape_string($conexao, $nome);
     $email = mysqli_real_escape_string($conexao, $email);
     $telefone = mysqli_real_escape_string($conexao, $telefone);
